@@ -7,3 +7,4 @@ MVC pattern added
 
 2019/12/17
 Pug install
+Layouts with Pug
