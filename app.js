@@ -11,7 +11,8 @@ import routes from "./routes";
 
 const app = express();
 
-app.use(cookieParser()); // session을 다루기 위해 cookie에 사용자 정보 저장
+app.set("view engine", "pug");
+app.use(cookieParser()); // cookie를 전달 받아서 사용할 수 있도록 만들어주는 middleware
 app.use(bodyParser.json()); // body parser는 form 데이터 가진 request object에 접근
 app.use(bodyParser.urlencoded({ extended: true })); // server가 user로부터 받은 data 를 다루는 방법
 app.use(morgan("dev")); // logging 기능
