@@ -8,3 +8,8 @@ MVC pattern added
 2019/12/17
 Pug install
 Layouts with Pug
+Local Variable
+
+2019/12/18
+Template Variable
+Search Controller
