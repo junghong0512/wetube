@@ -2,6 +2,20 @@
 
 Cloning Youtube with Vanilla and NodeJS
 
+## Pages:
+
+- [ ] Home
+- [ ] Join
+- [ ] Login
+- [x] Search
+- [ ] User Detail
+- [ ] Edit Profile
+- [ ] Change Password
+- [ ] Upload
+- [ ] Video Detail
+- [ ] Edit Video
+
+
 2019/12/16
 MVC pattern added
 
