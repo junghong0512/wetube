@@ -26,3 +26,5 @@ Local Variable
 2019/12/18
 Template Variable
 Search Controller
+form pages are done
+fake data 

@@ -1,4 +1,7 @@
-export const home = (req, res) => res.render("home", { pageTitle: "Home" }); // pagetitle이 home tempplate 로 전달됨
+import { videos } from "../db";
+
+export const home = (req, res) =>
+  res.render("home", { pageTitle: "Home", videos }); // pagetitle이 home tempplate 로 전달됨
 
 export const search = (req, res) => {
   // const searchingBy = req.query.term;
