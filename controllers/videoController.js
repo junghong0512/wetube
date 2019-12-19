@@ -3,7 +3,7 @@ import Video from "../models/Video";
 
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({}); // find 가 끝나고 난 뒤 render 가 실행된다, find({}) 의 return 은 Array
+    const videos = await Video.find({}).sort({ _id: -1 }); // find 가 끝나고 난 뒤 render 가 실행된다, find({}) 의 return 은 Array
     res.render("home", { pageTitle: "Home", videos }); // pagetitle이 home tempplate 로 전달됨, {pageTitle : "HOME", videos: videos}
   } catch (error) {
     console.log(error);
@@ -11,12 +11,19 @@ export const home = async (req, res) => {
   }
 };
 
-export const search = (req, res) => {
+export const search = async (req, res) => {
   // const searchingBy = req.query.term;
   const {
     query: { term: searchingBy }
   } = req;
-  console.log(searchingBy);
+  let videos = [];
+  try {
+    videos = await Video.find({
+      title: { $regex: searchingBy, $options: "i" }
+    });
+  } catch (error) {
+    console.log(error);
+  }
   res.render("search", { pageTitle: "Search", searchingBy, videos });
 };
 
@@ -81,6 +88,8 @@ export const deleteVideo = async (req, res) => {
   } = req;
   try {
     await Video.findOneAndRemove({ _id: id });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
   res.redirect(routes.home);
 };
