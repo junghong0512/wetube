@@ -14,7 +14,7 @@ const app = express();
 
 app.use(helmet()); // 앱보안을 위해서 추가됨(특별한 기능은 없다)
 app.set("view engine", "pug");
-app.use("/uploads", express.static("uploads")); // directory 에서 file 을 내보내주는 middleware
+app.use("/uploads", express.static("uploads")); // directory 에서 file 을 내보내주는 middleware(expose a foler to the internet)
 app.use(cookieParser()); // cookie를 전달 받아서 사용할 수 있도록 만들어주는 middleware
 app.use(bodyParser.json()); // body parser는 form 데이터 가진 request object에 접근 (req.body 로 전송된 데이터에 접근할 수 있다)
 app.use(bodyParser.urlencoded({ extended: true })); // server가 user로부터 받은 data 를 다루는 방법
