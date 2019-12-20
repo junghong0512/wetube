@@ -11,6 +11,15 @@ const config = {
   mode: MODE,
   module: {
     rules: [
+      // loader 를 이용해서 code 를 translate 한다.
+      {
+        test: /\.(js)$/,
+        use: [
+          {
+            loader: "babel-loader"
+          }
+        ]
+      },
       {
         test: /\.(scss)$/,
         use: ExtractCSS.extract([
