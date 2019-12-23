@@ -46,3 +46,8 @@ button {
 button.delete {
   background-color: $dark-red;
 }
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}

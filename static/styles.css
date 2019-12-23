@@ -181,6 +181,10 @@ button {
 button.delete {
   background-color: #bb2f2a; }
 
+button,
+input[type="submit"] {
+  cursor: pointer; }
+
 .header {
   background-color: #ea232c;
   margin-bottom: 50px; }
