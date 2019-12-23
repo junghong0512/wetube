@@ -4,11 +4,14 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import passport from "passport";
 import { localMiddleware } from "./middleware";
 import routes from "./routes";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
+
+import "./passport";
 
 const app = express();
 
@@ -20,6 +23,9 @@ app.use(cookieParser()); // cookie를 전달 받아서 사용할 수 있도록 �
 app.use(bodyParser.json()); // body parser는 form 데이터 가진 request object에 접근 (req.body 로 전송된 데이터에 접근할 수 있다)
 app.use(bodyParser.urlencoded({ extended: true })); // server가 user로부터 받은 data 를 다루는 방법
 app.use(morgan("dev")); // logging 기능
+app.use(passport.initialize()); // 위에서 cookieParser를 실행시키고, 여기에서 초기화 시켜준다
+app.use(passport.session()); // passport가 스스로 쿠키를 뒤져서, 쿠키 정보에 해당되는 사용자를 찾아준다.
+
 app.use(localMiddleware); // app객체의 locals변수에 저장
 
 app.use(routes.home, globalRouter);
