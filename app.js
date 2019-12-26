@@ -37,7 +37,7 @@ app.use(
   })
 );
 
-app.use(passport.initialize()); // 위에서 cookieParser를 실행시키고, 여기에서 초기화 시켜준다
+app.use(passport.initialize()); // 위에서 cookieParser를 실행시키고, 여기에서 초기화 시켜준다 (초기화를 통해서 req.user 에 user 정보가 들어간다)
 app.use(passport.session()); // passport가 스스로 쿠키를 뒤져서, 쿠키 정보에 해당되는 사용자를 찾아준다.
 
 app.use(localMiddleware); // app객체의 locals변수에 저장
