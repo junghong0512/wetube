@@ -8,6 +8,7 @@ const s3 = new aws.S3({
   secretAccessKey: process.env.AWS_PRIVATE_KEY
 });
 
+// upload to aws s3
 const multerVideo = multer({
   storage: multerS3({
     s3,
@@ -24,7 +25,7 @@ const multerAvatar = multer({
   })
 });
 
-// // middleware to get file URL(경로)
+// // middleware to get file URL(경로) Local 에 upload 하는 방법
 // const multerVideo = multer({ dest: "uploads/videos/" }); // server에 upload/videos 라는 folder에 저장할것
 // const multerAvatar = multer({ dest: "uploads/avatars/" });
 
