@@ -47,7 +47,7 @@ app.use(passport.session()); // passport가 스스로 쿠키를 뒤져서, 쿠�
 app.use(localMiddleware); // app객체의 locals변수에 저장
 
 app.use(routes.home, globalRouter);
-app.use(routes.users, userRouter); // get:  use:
+app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
 app.use(routes.api, apiRouter);
 
