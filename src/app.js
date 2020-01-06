@@ -8,6 +8,7 @@ import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session";
 import path from "path";
+import flash from "express-flash";
 import MongoStore from "connect-mongo";
 import { localMiddleware } from "./middleware";
 import routes from "./routes";
@@ -40,6 +41,8 @@ app.use(
     store: new CokieStore({ mongooseConnection: mongoose.connection }) // mongoose 가 db(MongoDB)에 연결해준다. 서버를 재시작 하더라도 쿠키를 유지한다
   })
 );
+
+app.use(flash()); // local 메세지를 사용할 수 있게 해주는 middleware (새로운 page request 가 있을 때 지워진다)
 
 app.use(passport.initialize()); // 위에서 cookieParser를 실행시키고, 여기에서 초기화 시켜준다 (초기화를 통해서 req.user 에 user 정보가 들어간다)
 app.use(passport.session()); // passport가 스스로 쿠키를 뒤져서, 쿠키 정보에 해당되는 사용자를 찾아준다.
