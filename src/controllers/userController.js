@@ -9,7 +9,7 @@ export const postJoin = async (req, res, next) => {
     body: { name, email, password, password2 }
   } = req;
   if (password !== password2) {
-    req.flash("error", "Passwords don't match!");
+    req.flash("error", "Passwords don't match!"); // flash 사용
     res.status(400);
     res.render("join", { pageTitle: "Join" });
   } else {
