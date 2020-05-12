@@ -6,7 +6,7 @@
   .videoBlock:nth-child(2) {
     grid-column: span 3;
   }
-  .videoBlock:nth-child(n > 3) {
+  .videoBlock:nth-child(n + 2) {
     grid-column: span 2;
   }
 }
