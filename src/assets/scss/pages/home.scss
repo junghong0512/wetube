@@ -4,7 +4,7 @@
   grid-gap: 30px;
   .videoBlock:first-child,
   .videoBlock:nth-child(2) {
-    height: 200px;
+    height: 30%;
     grid-column: span 3;
   }
   .videoBlock:nth-child(n + 2) {
