@@ -8,7 +8,9 @@
   }
   .videoBlock:nth-child(3),
   .videoBlock:nth-child(4),
-  .videoBlock:nth-child(5) {
+  .videoBlock:nth-child(5),
+  .videoBlock:nth-child(6),
+  .videoBlock:nth-child(7) {
     grid-column: span 2;
   }
 }
